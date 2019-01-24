@@ -1,0 +1,119 @@
+#!/bin/bash
+# CS 302, assignment #5 test script.
+
+# ---------------------------------------------------------
+# Initial checks.
+#	Ensure executable file exists.
+
+if [ ! -e $1 ] || [ ! -x $1 ]; then
+	echo "Error, unable to find '$1 executable file."
+	exit
+fi
+#
+if [ ! -e mainAVLtest ] || [ ! -x mainAVLtest ]; then
+	echo "Error, unable to find 'mainAVLtest' executable file."
+	exit
+fi
+#
+if [ ! -e mstr1.txt ] || [ ! -e mstr2.txt ]; then
+	echo "Error, unable to find master test text file."
+	exit
+fi
+#
+if [ ! -e smallDictionary.txt ]; then
+	echo "Error, unable to find 'smallDictionary' text file."
+	exit
+fi
+#
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+# Display initial page
+
+clear
+echo
+echo
+echo ${bolded}Assignment 5 - Testing Script${normal}
+echo
+echo
+echo
+echo
+echo "Note, this utility assumes the program is working or very"
+echo "      close to working.  Testing on an incomplete"
+echo "      program will not be useful."
+echo
+echo
+echo
+echo
+pause $2
+
+# ---------------------------------------------------------
+# Begin tests.
+#
+clear
+#
+echo -e "**********************************************************************"
+echo "Basic Tests for AVL tree data structures."
+echo
+echo
+#
+echo "${bolded}./mainAVLtest > AVLtest.txt${normal}"
+./mainAVLtest > AVLtest.txt
+#
+if `diff AVLtest.txt AVLmstr.txt >/dev/null` ; then
+	echo
+	echo "AVL Test Output Correct"
+else
+	diff AVLtest.txt AVLmstr.txt
+fi
+#
+echo
+#
+echo -e "\n**********************************************************************"
+echo "Tests for word finder."
+echo "Stand-by, this may take a while..."
+echo
+echo
+#
+for i in {1..5..1}
+do
+	echo "${bolded}./$1 -d smallDictionary.txt -w words$i.txt > test$i.txt${normal}"
+		./$1 -d smallDictionary.txt -w words$i.txt > test$i.txt
+#
+	if `diff test$i.txt mstr$i.txt >/dev/null` ; then
+		echo "$1 - Output Correct."
+	else
+		diff test$i.txt mstr$i.txt
+	fi
+#
+	echo
+done
+#
+echo
+echo
+#
+# -----
+#  clean-up
+#
+rm	AVLtest.txt
+for i in {1..5..1}
+do
+	rm	test$i.txt
+done
+#
+

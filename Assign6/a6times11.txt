@@ -1,0 +1,99 @@
+Executions for Harshad Numbers program.
+
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 1 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 1
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 1075641 miliseconds
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 2 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 2
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 561701 miliseconds
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 4 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 4
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 284189 miliseconds
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 8 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 8
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 287175 miliseconds
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 16 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 16
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 297603 miliseconds
+
+**********************************************************************
+
+Executions for Harshad Numbers Program to 5000000000, 32 threads.
+
+------------------------------------------------------------
+CS 302 - Assignment #6
+
+Hardware Cores: 4
+Thread Count: 32
+Number Limit: 5000000000
+
+Results:
+   Count of Harshad numbers between 1 and 5000000000 is 131304670
+
+Thread took: 315331 miliseconds
+
