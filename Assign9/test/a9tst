@@ -1,0 +1,387 @@
+#!/bin/bash
+# CS 302, assignment #9 test script.
+
+# ---------------------------------------------------------
+# Initial checks.
+#	Ensure executable file exists.
+
+if [ -z $1 ]; then
+	echo "Error, must provide executable file name."
+	exit
+fi
+
+if [ ! -e $1 ] || [ ! -x $1 ]; then
+	echo "Error, unable to find $1 executable file."
+	exit
+fi
+
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+bldred=`tput bold``tput setaf 1`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+# Display initial page
+
+clear
+echo
+echo
+echo ${bolded}Assignment 9 - Testing Utility${normal}
+echo
+echo
+echo
+echo
+echo "Note, this utility assumes the program is working or very"
+echo "      close to working.  Testing on an incomplete"
+echo "      program will not be useful."
+echo
+echo
+echo
+#
+# ---------------------------------------------------------
+#
+pause $2
+# ---------------------------------------------------------
+# skip command line arguments tests...
+#
+if [ ! "$2" == "ex" ]; then
+#
+# ---------------------------------------------------------
+# Begin tests command line tests.
+#
+clear
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for command line arguments."
+echo
+# -----
+# Initial checks for usage message and argument counts
+echo "-------------------------------"
+echo "Initial checks for usage message and argument counts"
+echo
+#
+echo
+echo "${bolded}Test -> should show usage message${normal}"
+echo "./"$1""
+./$1
+#
+echo
+echo
+echo
+echo "${bolded}Test -> should show invalid command line options.${normal}"
+echo "./"$1" -none"
+./$1 -none
+#
+echo
+echo "${bolded}Test -> should show invalid command line options.${normal}"
+echo "./"$1" -r 100 -c 100 -o none.dat -p -none"
+./$1 -r 100 -c 100 -o none.dat -p -none
+#
+echo
+echo
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for rows specifier."
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows specifier.${normal}"
+echo "${bolded}./$1 -row 100 -c 100 -o none.dat -p${normal}"
+./$1 -row 100 -c 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows specifier.${normal}"
+echo "${bolded}./$1 -w 100 -c 100 -o none.dat${normal}"
+./$1 -w 100 -c 100 -o none.dat
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows specifier.${normal}"
+echo "${bolded}./$1 -x 100 -c 100 -o none.dat -p${normal}"
+./$1 -x 100 -c 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows specifier.${normal}"
+echo "${bolded}./$1 -c 100 -c 100 -o none.dat${normal}"
+./$1 -c 100 -c 100 -o none.dat
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows specifier.${normal}"
+echo "${bolded}./$1 -o none.dat -p -c 100 r 100${normal}"
+./$1 -o none.dat -p -c 100 r 100
+#
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for columns specifier."
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns specifier.${normal}"
+echo "${bolded}./$1 -r 100 -col 100 -o none.dat -p${normal}"
+./$1 -r 100 -col 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns specifier.${normal}"
+echo "${bolded}./$1 -r 100 -l 100 -o none.dat${normal}"
+./$1 -r 100 -l 100 -o none.dat
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns specifier.${normal}"
+echo "${bolded}./$1 -r 100 -m 100 -o none.dat -p${normal}"
+./$1 -r 100 -m 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns specifier.${normal}"
+echo "${bolded}./$1 -r 100 -r 100 -o none.dat${normal}"
+./$1 -r 100 -r 100 -o none.dat
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns specifier.${normal}"
+echo "${bolded}./$1 -o none.dat -p c 100 -r 100${normal}"
+./$1 -o none.dat -p c 100 -r 100
+#
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for value validity tests."
+#
+echo
+echo "${bolded}Test -> should show Error, invalid maze size.${normal}"
+echo "${bolded}./$1 -r 4 -c 4 -o none.dat${normal}"
+./$1 -r 4 -c 4 -o none.dat
+#
+echo
+echo "${bolded}Test -> should show Error, invalid maze size.${normal}"
+echo "${bolded}./$1 -r -100 -c -100 -o none.dat -p${normal}"
+./$1 -r -100 -c -100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows value.${normal}"
+echo "${bolded}./$1 -r 2x -c 100 -o none.dat -p${normal}"
+./$1 -r 2x -c 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows value.${normal}"
+echo "${bolded}./$1 -r 1g0 -c 100 -o none.dat -p${normal}"
+./$1 -r 1g0 -c 100 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid rows value.${normal}"
+echo "${bolded}./$1 -r two -c 100 -o none.dat -p${normal}"
+./$1 -r two -c 100 -o none.dat -p
+#
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for value validity tests."
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns value.${normal}"
+echo "${bolded}./$1 -r 100 -c 2x -o none.dat -p${normal}"
+./$1 -r 100 -c 2x -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns value.${normal}"
+echo "${bolded}./$1 -r 100 -c 1g0 -o none.dat -p${normal}"
+./$1 -r 100 -c 1g0 -o none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid columns value.${normal}"
+echo "${bolded}./$1 -r 100 -c two -o none.dat -p${normal}"
+./$1 -r 100 -c two -o none.dat -p
+#
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for output file specifier."
+echo
+echo
+echo
+#
+echo "${bolded}Test -> should show Error, invalid output file specifier.${normal}"
+echo "${bolded}./$1 -r 100 -c 100 -out none.dat -p${normal}"
+./$1 -r 100 -c 100 -out none.dat -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid output file specifier.${normal}"
+echo "${bolded}./$1 -r 100 -c 100 o none.dat -p${normal}"
+./$1 -r 100 -c 100 o none.dat -p
+#
+#
+echo
+echo "${bolded}Test -> should show Error, invalid output file specifier.${normal}"
+echo "${bolded}./$1 o none.dat -r 100 -c 100 o none.dat${normal}"
+./$1 o none.dat -r 100 -c 100
+#
+echo
+echo
+echo
+echo
+echo
+echo
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for console print specifier."
+echo
+echo
+echo
+#
+echo
+echo "${bolded}Test -> should show Error, invalid print specifier.${normal}"
+echo "${bolded}./$1 -r 100 -c 100 -o none.dat -prt${normal}"
+./$1 -r 100 -c 100 -o none.dat -prt
+#
+echo
+echo "${bolded}Test -> should show Error, invalid print specifier.${normal}"
+echo "${bolded}./$1 -r 100 p -c 100 -o none.dat ${normal}"
+./$1 -r 100 p -c 100 -o none.dat
+#
+#
+echo
+echo "${bolded}Test -> should show Error, invalid print specifier.${normal}"
+echo "${bolded}./$1 p -o none.dat -r 100 -c 100${normal}"
+./$1 p -o none.dat -r 100 -c 100
+#
+echo
+echo
+echo
+echo
+echo
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for output file name."
+echo
+#
+echo "creating non accessable test file..." > nonAccessableFile.txt
+chmod -rw nonAccessableFile.txt
+#
+echo
+echo "${bolded}Test -> should show Error, unable to output file.${normal}"
+echo "${bolded}./$1 -r 100 -c 100 -o nonAccessableFile.txt${normal}"
+./$1 -r 100 -c 100 -o nonAccessableFile.txt
+#
+echo
+echo "${bolded}Test -> should show Error, unable to output file.${normal}"
+echo "${bolded}./$1 -p -o nonAccessableFile.txt -r 100 -c 100${normal}"
+./$1 -p -o nonAccessableFile.txt -r 100 -c 100
+#
+echo
+echo "${bolded}Test -> should show Error, unable to output file.${normal}"
+echo "${bolded}./$1 -o nonAccessableFile.txt -r 100 -p -c 100${normal}"
+./$1 -o nonAccessableFile.txt -r 100 -p -c 100
+#
+chmod +rw nonAccessableFile.txt
+rm nonAccessableFile.txt
+#
+echo
+pause $2
+#
+fi
+#
+# ---------------------------------------------------------
+# Begin execution tests.
+#
+# ---------------------------------
+#  PQ Testing
+echo
+echo "**********************************************************************"
+echo ${bolded}Disjoint Data Structure Test Program...${normal}
+echo
+echo
+echo
+echo
+./testDSclass > testOut.txt
+
+if `diff testOut.txt mstrDJtest.txt >/dev/null` ; then
+	echo "Disjoint Sets Test Successful"
+else
+	diff testOut.txt mstrDJtest.txt
+fi
+echo
+echo
+echo
+echo
+pause $2
+#
+# ---------------------------------
+#  testing
+#
+echo "**********************************************************************"
+echo ${bolded}Execution Testing...${normal}
+#
+declare -a rows=(5 5 15 50 500 1000);
+declare -a cols=(5 15 5 100 700 1500);
+#
+for cnt in {0..5..1}
+do
+	echo "----------"
+	echo "${bolded}Test #$cnt${normal}"
+	echo
+
+	echo "./"$1" -r ${rows[cnt]} -c ${cols[cnt]} -p -o mazeOut$cnt.txt > consoleOut$cnt.txt"
+	./$1 -r ${rows[cnt]} -c ${cols[cnt]} -p -o mazeOut$cnt.txt > consoleOut$cnt.txt
+	echo "mazeOut$cnt.txt | ./maze_ppm 5 | convert - maze$cnt.jpg"
+	cat mazeOut$cnt.txt | ./maze_ppm 5 | convert - maze$cnt.jpg
+	echo
+
+	if `diff consoleOut$cnt.txt consoleMstr$cnt.txt >/dev/null` ; then
+		echo "Console Output Test $cnt Successful"
+	else
+		diff consoleOut$cnt.txt consoleMstr$cnt.txt
+	fi
+
+	if `diff mazeOut$cnt.txt mazeMstr$cnt.txt >/dev/null` ; then
+		echo "Maze File Output Test $cnt Successful"
+	else
+		diff mazeOut$cnt.txt mazeMstr$cnt.txt
+	fi
+
+	if `diff maze$cnt.jpg mazeMstr$cnt.jpg >/dev/null` ; then
+		echo "Maze JPG Test $cnt Successful"
+	else
+		diff mazeOut$cnt.jpg mazeMstr$cnt.jpg
+	fi
+
+	echo
+
+	if [ $cnt -eq 1 ] || [ $cnt -eq 3 ]; then
+		pause $2
+	fi
+done
+#
+echo
+#
+# -----
+#  clean-up.
+#	Note, might want to comment these out if needed for debugging...
+#
+rm	testOut.txt
+#
+for cnt1 in {0..5..1}
+do
+	rm consoleOut$cnt1.txt
+	rm mazeOut$cnt1.txt
+done
+#
