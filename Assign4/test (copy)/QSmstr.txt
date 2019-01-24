@@ -1,0 +1,53 @@
+-----------------------------------------------------------------
+CS 302 - Assignment #4
+Basic Testing for Linked Stacks and Queues Data Structures
+
+*****************************************************************
+Test Queue Operations - Integers:
+
+Queue 0 (original): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Queue 0 (count): 20
+
+Queue 1 (odds):     1 3 5 7 9 11 13 15 17 19 
+Queue 1 (count): 10
+
+Queue 2 (evens):    2 4 6 8 10 12 14 16 18 20 
+Queue 2 (count): 10
+
+-----------------------------------------------------------------
+Test Queue Operations - Floats:
+
+Queue 3 (floats, original): 1.5 2.5 3.5 4.5 5.5 6.5 7.5 
+Queue 3 (floats, modified): 1.5 2.5 3.5 4.5 5.5 6.5 7.5 
+
+Queue 3 (count): 7
+Queue 3 (first item): 1.5
+Queue 3 (last item): 7.5
+
+-----------------------------------------------------------------
+Test Queue Operations - Many Items:
+
+Many items, test passed.
+
+
+*****************************************************************
+Test Stack Operations - Reversing:
+
+Original List:     2 4 6 8 10 12 14 16 18 20 
+Reverse List:      20 18 16 14 12 10 8 6 4 2 
+Copy A (original): 2 4 6 8 10 12 14 16 18 20 
+
+-----------------------------------------------------------------
+Test Stack Operations - Doubles:
+
+Original List:     1.1 3.3 5.5 7.7 9.9 11.11 13.13 15.15 
+Reverse List:      15.15 13.13 11.11 9.9 7.7 5.5 3.3 1.1 
+Copy A (original): 1.1 3.3 5.5 7.7 9.9 11.11 13.13 15.15 
+
+-----------------------------------------------------------------
+Test Stack Operations - Many Items:
+
+Many items, test passed.
+
+-----------------------------------------------------------------
+Game Over, thank you for playing.

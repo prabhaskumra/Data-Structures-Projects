@@ -1,0 +1,126 @@
+#!/bin/bash
+# CS 302, assignment #4 test script.
+
+# ---------------------------------------------------------
+# Initial checks.
+#	Ensure executable file exists.
+
+if [ ! -e reverse ] || [ ! -x reverse ]; then
+	echo "Error, unable to find 'reverse' executable file."
+	exit
+fi
+#
+if [ ! -e testDataStructures ] || [ ! -x testDataStructures ]; then
+	echo "Error, unable to find 'testDataStructures' executable file."
+	exit
+fi
+#
+if [ ! -e file1.ogg ] || [ ! -e mstrOut1.txt ] ; then
+	echo "Error, unable to find test input files."
+	exit
+fi
+#
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+# Display initial page
+
+clear
+echo
+echo
+echo ${bolded}Assignment 4 - Testing Script${normal}
+echo
+echo
+echo
+echo
+echo "Note, this utility assumes the program is working or very"
+echo "      close to working.  Testing on an incomplete"
+echo "      program will not be useful."
+echo
+echo
+echo
+echo
+pause $2
+
+# ---------------------------------------------------------
+# Begin tests.
+#
+clear
+#
+echo -e "**********************************************************************"
+echo "Basic Tests for Queue and Stack data structures."
+echo
+#
+./testDataStructures > QStest.txt
+#
+if `diff QStest.txt QSmstr.txt >/dev/null` ; then
+	echo
+	echo "Queue/Stack Test Output Correct"
+else
+	diff QStest.txt QSmstr.txt
+fi
+#
+#
+echo
+echo
+echo
+echo
+echo
+echo
+pause $2
+#
+echo -e "\n**********************************************************************"
+echo "Tests for audio reverse execution."
+echo
+echo
+#
+for i in {1..6..1}
+do
+
+	echo "${bolded}./rev file${i}.ogg clip${i}.ogg${normal}"
+
+	./rev file${i}.ogg clip${i}.ogg &> out${i}.txt
+
+	if `diff out${i}.txt mstrOut${i}.txt >/dev/null` ; then
+		echo "Reverse - Console Output Correct."
+	else
+		diff out${i}.txt mstrOut${i}.txt
+	fi
+
+#	if `cmp clip${i}.ogg mstr${i}.ogg >/dev/null` ; then
+#		echo "Reverse Results, Output Correct."
+#	else
+#		cmp clip${i}.ogg mstr${i}.ogg
+#	fi
+
+	echo
+
+done
+#
+# -----
+#  clean-up
+#
+rm	QStest.txt
+#
+for i in {1..6..1}
+do
+	rm	clip${i}.ogg
+	rm	out${i}.txt
+done
+#
+
