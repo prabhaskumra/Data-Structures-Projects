@@ -1,0 +1,58 @@
+CS 302 - Assignment #8
+Dynamic Medians Program.
+************************************************************
+
+--------------------------------------------------
+Data Set 0
+
+Data:
+-----
+5 15 1 3 2 8 7 9 10 6 11 4 
+
+Dynamic Medians:
+----------------
+5 10 5 4 3 4 5 6 7 6 7 6 
+
+
+--------------------------------------------------
+Data Set 1
+
+Data:
+-----
+383 886 777 915 793 335 386 492 649 421 
+
+Dynamic Medians:
+----------------
+383 634 777 831 793 785 777 634 649 570 
+
+
+--------------------------------------------------
+Data Set 2
+
+Selected Data:
+--------------
+202362 546509 243507 745566 772925 759209 103727 960907 789737 313996 
+
+Selected Medians:
+-----------------
+202362 501595 501218 501290 501210 500881 500625 500150 499995 500185 
+
+--------------------------------------------------
+Min Heap Tests
+
+on-at-a-time inserts took: 1924 milliseconds
+heapify inserts took: 1463 milliseconds
+
+
+Verification in process, standby...
+
+--------------------------------------------------
+Max Heap Tests
+
+on-at-a-time inserts took: 1910 milliseconds
+heapify inserts took: 1438 milliseconds
+
+Verification in process, standby...
+
+************************************************************
+Game Over, thank you for playing.

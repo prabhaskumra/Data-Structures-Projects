@@ -1,0 +1,95 @@
+----------------------------------------
+CS 302 - Assignment #7
+Associative Array Test Program.
+
+*****************************************************************
+
+Array Dump (for testing)
+----------------------------------------
+Key: a           Value: 1
+Key: by          Value: 5
+Key: bye         Value: 6
+Key: the         Value: 0
+Key: any         Value: 4
+Key: ball        Value: 8
+Key: there       Value: 2
+Key: their       Value: 7
+Key: answer      Value: 3
+Key: balloon     Value: 9
+
+Values Sum: 45
+
+
+Test Array Zero Stats
+Hash Stats
+   Current Entries Count 0
+   Hash Size: 1013
+   Hash Resize Operations: 0
+   Hash Collisions: 0
+
+*****************************************************************
+
+Array Dump (for testing)
+----------------------------------------
+Key: ab          Value: 15
+Key: aba         Value: 16
+Key: aah         Value: 0
+Key: aal         Value: 4
+Key: aas         Value: 13
+Key: abas        Value: 34
+Key: aahs        Value: 3
+Key: aals        Value: 7
+Key: abaca       Value: 17
+Key: abaci       Value: 19
+Key: abaka       Value: 24
+Key: aback       Value: 20
+Key: aahed       Value: 1
+Key: abase       Value: 35
+Key: abate       Value: 49
+Key: abaft       Value: 23
+Key: abash       Value: 41
+Key: aalii       Value: 5
+Key: abamp       Value: 28
+Key: aargh       Value: 10
+Key: abacas      Value: 18
+Key: abased      Value: 36
+Key: abasia      Value: 45
+Key: abakas      Value: 25
+Key: aahing      Value: 2
+Key: abaser      Value: 38
+Key: abacus      Value: 21
+Key: abases      Value: 40
+Key: aaliis      Value: 6
+Key: abamps      Value: 30
+Key: aarrgh      Value: 11
+Key: abashed     Value: 42
+Key: abalone     Value: 26
+Key: abandon     Value: 31
+Key: abasias     Value: 46
+Key: abasing     Value: 47
+Key: abashes     Value: 43
+Key: aarrghh     Value: 12
+Key: abasers     Value: 39
+Key: abatable    Value: 48
+Key: abapical    Value: 33
+Key: abampere    Value: 29
+Key: abashing    Value: 44
+Key: abalones    Value: 27
+Key: abandons    Value: 32
+Key: abacuses    Value: 22
+Key: abasedly    Value: 37
+Key: aardvark    Value: 8
+Key: aardwolf    Value: 9
+Key: aasvogel    Value: 14
+
+Values Sum: 1225
+
+
+Test Array One Stats
+Hash Stats
+   Current Entries Count 0
+   Hash Size: 1013
+   Hash Resize Operations: 0
+   Hash Collisions: 5
+
+*****************************************************************

@@ -1,0 +1,165 @@
+*****************************************************************
+[1mCS 302 - Assignment #8
+Priority Queue Tester[0m
+
+
+=================================================================
+[1mMin Heap - Test Set #0[0m
+----------------------------------------
+PQ Heap (level order):
+amazon
+
+apple
+cisco
+
+belkin
+dell
+oracle
+newegg
+
+jupiter
+google
+ebay
+
+----------------------------------------
+PQ Heap Size: 10
+Priority Order:
+amazon
+apple
+belkin
+cisco
+dell
+ebay
+google
+jupiter
+newegg
+oracle
+
+=================================================================
+[1mMin Heap - Test Set #1[0m
+----------------------------------------
+PQ Heap (level order):
+a
+
+b
+c
+
+d
+f
+g
+j
+
+e
+l
+n
+h
+i
+o
+z
+t
+
+x
+s
+w
+u
+y
+v
+p
+k
+r
+m
+q
+
+----------------------------------------
+PQ Heap Size: 26
+Priority Order:
+a b c d e f g h i j k l m n o p q r s t u v w x y z 
+
+=================================================================
+[1mMin Heap - Test Set #2[0m
+Min Heap - Large test successful.
+
+=================================================================
+[1mMax Heap - Test Set #0[0m
+----------------------------------------
+PQ Heap (level order):
+oracle
+
+jupiter
+newegg
+
+dell
+ebay
+google
+cisco
+
+amazon
+belkin
+apple
+
+----------------------------------------
+PQ Heap Size: 10
+Priority Order:
+oracle
+newegg
+jupiter
+google
+ebay
+dell
+cisco
+belkin
+apple
+amazon
+
+=================================================================
+[1mMax Heap - Test Set #1[0m
+----------------------------------------
+PQ Heap (level order):
+z
+
+x
+y
+
+u
+w
+q
+t
+
+r
+s
+v
+k
+m
+o
+g
+j
+
+b
+e
+n
+l
+p
+f
+d
+h
+a
+i
+c
+
+----------------------------------------
+PQ Heap Size: 26
+Priority Order:
+z y x w v u t s r q p o n m l k j i h g f e d c b a 
+
+=================================================================
+[1mMax Heap - Test Set #2[0m
+Max Heap - Large test successful.
+
+=================================================================
+[1mShould show heap empty errors.[0m
+
+Error, min heap empty.
+Error, max heap empty.
+
+*****************************************************************
+Game Over, thank you for playing.

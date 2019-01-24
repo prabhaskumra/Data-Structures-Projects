@@ -1,0 +1,23 @@
+*****************************************************************
+CS 302 - Assignment #7
+
+Overall Average: 6.91269
+
+Lowest Rated Movies:
+     Movie: The Brownstone Incident-1958                         Score: 0.7
+     Movie: Land of Shadows-1987                                 Score: 0.8
+     Movie: The Tri-Tones-1957                                   Score: 0.9
+
+Highest Rated Movies:
+     Movie: The Chinese Word for Horse-1977                      Score: 10.3
+     Movie: Closed for Business-1997                             Score: 10.2
+     Movie: The Maltese Phallus-1990                             Score: 10.1
+
+Hash Stats
+   Current Entries Count: 809832
+   Current Hash Size: 1920013
+   Hash Resize Operations: 8
+   Hash Collisions: 1178989
+
+*****************************************************************
+Game Over, thank you for playing.
