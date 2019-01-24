@@ -1,0 +1,69 @@
+*****************************************************************
+[1mCS 302 - Assignment #11
+Gantt Analysis Project[0m
+
+------------------------------------------------------------
+Graph Information
+   Project title: Project 0, Simple Example
+   Milestone Count: 7
+   Task Count: 12
+   Source Milestone: 0
+   Tasks/Milestones Ratio: 1.714286
+   Project Tasks Density: 0.571429
+
+   Key Milestone: 6, in-degree: 3 tasks
+   Node Point: 3, out-degree: 4 tasks
+   Independent Milestones
+ 5
+
+------------------------------------------------------------
+Graph Adjacency List:
+   Title: Project 0, Simple Example
+
+Vertex    vrt /weight | vrt /weight | vrt /weight | ...
+------    ----------------------------------------------
+     0 ->    3/     1 |    1/     2 | 
+     1 ->    3/     3 |    4/    10 | 
+     2 ->    6/     4 |    5/     5 | 
+     3 ->    2/     2 |    5/     8 |    6/     4 |    4/     2 | 
+     4 ->    6/     6 | 
+     5 ->    None
+     6 ->    5/     1 | 
+
+------------------------------------------------------------
+Dependency Statistics (in-degree):
+   Highest In-Degree: 3
+   Lowest In-Degree: 1
+   Count of Highest Degree: 2
+   Count of Lowest Degree: 2
+
+Dependency Statistics (out-degree):
+   Highest Out-Degree: 4
+   Lowest Out-Degree: 1
+   Count of Highest Degree: 1
+   Count of Lowest Degree: 2
+
+------------------------------------------------------------
+Topological Sort: 
+ 0 1 3 2 4 6 5
+
+
+------------------------------------------------------------
+Articulation Points:
+ 0 2 3 6
+
+------------------------------------------------------------
+Critical Path:
+   Source Node: 0
+   Final Task: 5
+   Total Duration: 19
+
+Critical Path: 
+ 0 1 4 6 5
+
+------------------------------------------------------------
+Slack Times (task-slacktime):
+ 2-7 3-5
+
+*****************************************************************
+Game Over, thank you for playing.

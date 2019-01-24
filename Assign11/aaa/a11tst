@@ -1,0 +1,231 @@
+#!/bin/bash
+#  CS 302, assignment #11 test script.
+
+# ---------------------------------------------------------
+#  Initial checks.
+#	Ensure executable file exists.
+#	Verify availability of testing support files.
+
+if [ -z $1 ]; then
+	echo "Error, must provide executable file name."
+	exit
+fi
+
+if [ ! -e $1 ] || [ ! -x $1 ]; then
+	echo "Error, unable to find $1 executable file."
+	exit
+fi
+
+if [ ! -e project1.txt ]; then
+	echo "Error, unable to find project files."
+	exit
+fi
+
+if [ ! -e mstr1.txt ]; then
+	echo "Error, unable to find verification files."
+	exit
+fi
+
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+#  Begin testing...
+#
+clear
+echo "${bolded}CS 302 Assignment #11 Test Script${normal}"
+echo
+#
+# ---------------------------------------------------------
+# skip command line arguments tests...
+#
+if [ ! "$2" == "ex" ]; then
+#
+clear
+echo -e "\n**********************************************************************"
+echo "Tests for program line argument tests."
+echo
+# -----
+# Initial checks for usage message and argument counts
+echo "-------------------------------"
+echo "Initial checks for usage message and argument counts"
+echo
+#
+echo
+echo "${bolded}Test -> should show usage message${normal}"
+echo "./"$1""
+./$1
+#
+echo
+echo
+echo "${bolded}Test -> should show invalid command line options.${normal}"
+echo "./"$1" -none"
+./$1 -none
+#
+echo
+echo "${bolded}Test -> should show invalid command line options.${normal}"
+echo "./"$1" -f project1.txt -p -extra"
+./$1 -f project1.txt -p -extra
+#
+#
+echo
+echo
+echo
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests argument specifiers."
+echo
+echo "${bolded}Test -> should show Error, invalid project file name specifier.${normal}"
+echo "${bolded}./$1 -gf project1.txt${normal}"
+./$1 -gf project1.txt
+#
+echo
+echo "${bolded}Test -> should show Error, invalid project file name specifier.${normal}"
+echo "${bolded}./$1 f project1.txt${normal}"
+./$1 f project1.txt
+#
+echo
+echo "${bolded}Test -> should show Error, invalid project file name specifier.${normal}"
+echo "${bolded}./$1 -g project1.txt -p${normal}"
+./$1 -g project1.txt -p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid print specifier.${normal}"
+echo "${bolded}./$1 -f project1.txt p${normal}"
+./$1 -f project1.txt p
+#
+echo
+echo "${bolded}Test -> should show Error, invalid print specifier.${normal}"
+echo "${bolded}./$1 -f project1.txt -pr${normal}"
+./$1 -f project1.txt -pr
+#
+pause $2
+#
+echo
+echo -e "\n**********************************************************************"
+echo "Tests for invalid file."
+#
+echo
+echo "${bolded}Test -> should show Error, can not find project file.${normal}"
+echo "${bolded}./$1 -f proj1.txt -p${normal}"
+./$1 -f proj1.txt -p
+#
+echo
+echo "${bolded}Test -> should show Error, can not find project file.${normal}"
+echo "${bolded}./$1 -f proj1.txt${normal}"
+./$1 -f proj1.txt
+#
+echo
+echo
+echo
+echo
+echo
+echo
+#
+#
+pause $2
+#
+fi
+#
+# ---------------------------------------------------------
+#  Tests
+#
+echo
+echo "${bolded}Execution Testing...${normal}"
+echo
+#
+# -----
+#
+for cnt in {1..2..1}
+do
+	echo "${bolded}Test #$cnt with print${normal}"
+	echo "./"$1" -f project$cnt.txt  > tmpp$cnt.txt"
+	./$1 -f project$cnt.txt -p > tmpp$cnt.txt
+
+	if `diff tmpp$cnt.txt mstrp$cnt.txt >/dev/null`; then
+		echo "Test #$cnt (w/p) Successful"
+	else
+		diff tmpp$cnt.txt mstrp$cnt.txt
+	fi
+	echo
+done
+#
+# -----
+#
+for cnt in {1..9..1}
+do
+	echo "${bolded}Test #$cnt${normal}"
+	echo "./"$1" -f project$cnt.txt  > tmp$cnt.txt"
+	./$1 -f project$cnt.txt > tmp$cnt.txt
+
+	if `diff tmp$cnt.txt mstr$cnt.txt >/dev/null`; then
+		echo "Test #$cnt Successful"
+	else
+		diff tmp$cnt.txt mstr$cnt.txt
+	fi
+	echo
+done
+#
+#
+echo "${bolded}Timed Test #10${normal}"
+echo "time ./"$1" -f project10.txt  > tmp10.txt"
+time ./$1 -f project10.txt > tmp10.txt
+
+if `diff tmp10.txt mstr10.txt >/dev/null`; then
+	echo "Test #10 Successful"
+else
+	diff tmp10.txt mstr10.txt
+fi
+echo
+#
+# -----
+#  Final test with valgrind
+#
+pause $2
+#
+echo -e "\n**********************************************************************"
+echo "Final test - check for memory leaks."
+echo
+echo "   Should show: \"All heap blocks were freed -- no leaks are possible\""
+echo
+echo
+#
+echo "valgrind ./"$1" -f project8.txt > tmp8.txt"
+valgrind ./$1 -f project8.txt > tmp8.txt
+#
+echo
+#
+#
+# ---------------------------------------------------------
+#  clean-up.
+#	Note, might want to comment these out if needed for debugging...
+#
+rm tmpp1.txt
+rm tmpp2.txt
+#
+for cnt1 in {1..10..1}
+do
+	rm tmp$cnt1.txt
+done
+#
+# ---------------------------------------------------------
+#  Done, end script
+#
+echo "Test Script Done."
+

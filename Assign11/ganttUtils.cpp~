@@ -1,0 +1,184 @@
+// Prabhas Kumra
+// Assignment# 11
+// CS 302-1004
+
+
+#include "ganttUtils.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+
+using namespace std;
+
+ganttUtils::ganttUtils()
+{
+
+}
+ganttUtils::~ganttUtils()
+{
+
+}
+void ganttUtils::newGraph(int)
+{
+
+}
+void ganttUtils::addEdge(int, int, int)
+{
+
+}
+bool ganttUtils::getArguments(int argc, char * argv[], string & fname, bool & printFlag)
+{
+  ifstream inFile;
+  ofstream outFile;
+  bool fileError = false, printSpec = false;
+
+  
+  if(argc == 1)
+    {
+      cout << "usage: ./projectInfo -f <filename>" << endl;
+      return false;
+    }
+  
+  if(argc < 3 || argc > 4)
+    {
+      cout << "Error, command line options" << endl;
+      return false;
+    }
+  
+
+  if(argc == 3)
+    {
+      if(string(argv[1]) == "-f")
+	{
+	  inFile.open(argv[2]);
+
+	  if(inFile.fail())
+	    {
+	      cout << "Error, input file" << endl;
+	      return false;
+	    }
+	  else
+	    fname = argv[2];
+
+	  fileError = true;
+	}
+
+      printFlag  = false;
+    }
+
+  if(argc == 4)
+    {
+      if(string(argv[1]) == "-f")
+	{
+          inFile.open(argv[2]);
+
+          if(inFile.fail())
+            {
+              cout << "Error, input file" << endl;
+              return false;
+            }
+          else
+            fname = argv[2];
+
+          fileError = true;
+	}
+
+      if(string(argv[3]) == "-p")
+	{
+	  printFlag = true;
+	  printSpec = true;
+	}
+
+      if(!printSpec)
+	{
+	  cout << "Error, invalid print specifier" << endl;
+	  return false;
+	}
+    }
+
+  if(!fileError)
+    {
+      cout << "Error, invalid file specifier" << endl;
+      return false;
+    }
+ 
+  return true;
+  
+}
+bool ganttUtils::readGraph(string)
+{
+
+}
+bool ganttUtils::isValidProject()
+{
+
+}
+int ganttUtils::getTaskCount()
+{
+
+}
+void ganttUtils::findGraphInformation()
+{
+
+}
+void ganttUtils::findKeyMilestone()
+{
+
+}
+void ganttUtils::findNodePoint()
+{
+
+}
+void ganttUtils::findDependencyStats()
+{
+
+}
+void ganttUtils::findIndependentMilestones()
+{
+
+}
+void ganttUtils::findAPs()
+{
+
+}
+void ganttUtils::topoSort()
+{
+
+}
+void ganttUtils::criticalPath()
+{
+
+}
+void ganttUtils::findSlackTimes()
+{
+
+}
+void ganttUtils::printGraphInformation()
+{
+
+}
+void ganttUtils::printGraph()
+{
+
+}
+void ganttUtils::printDependencyStats()
+{
+
+}
+void ganttUtils::printTopoSort()
+{
+
+}
+void ganttUtils::printAPs()
+{
+
+}
+void ganttUtils::printCriticalPath()
+{
+
+}
+void ganttUtils::printSlackTimes()
+{
+
+}
