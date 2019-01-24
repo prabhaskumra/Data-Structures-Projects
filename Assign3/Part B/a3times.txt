@@ -1,0 +1,183 @@
+Executions Times for Sorting Algorithms Program.
+
+
+=======================================================
+Executions for Bubble Sort.
+
+------------------------------------
+Execution Test, 100000 numbers.
+
+
+real	0m28.945s
+user	0m28.936s
+sys	0m0.004s
+
+------------------------------------
+Execution Test, 200000 numbers.
+
+
+real	1m56.887s
+user	1m56.882s
+sys	0m0.004s
+
+------------------------------------
+Execution Test, 300000 numbers.
+
+
+real	4m22.817s
+user	4m22.758s
+sys	0m0.036s
+
+------------------------------------
+Execution Test, 400000 numbers.
+
+
+real	7m52.726s
+user	7m52.521s
+sys	0m0.128s
+
+------------------------------------
+Execution Test, 500000 numbers.
+
+
+real	12m8.463s
+user	12m7.709s
+sys	0m0.736s
+
+------------------------------------
+
+=======================================================
+Executions for Insertion Sort.
+
+------------------------------------
+Execution Test, 100000 numbers.
+
+
+real	0m6.141s
+user	0m6.141s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 200000 numbers.
+
+
+real	0m24.537s
+user	0m24.536s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 300000 numbers.
+
+
+real	0m55.081s
+user	0m55.075s
+sys	0m0.004s
+
+------------------------------------
+Execution Test, 400000 numbers.
+
+
+real	1m38.127s
+user	1m38.114s
+sys	0m0.004s
+
+------------------------------------
+Execution Test, 500000 numbers.
+
+
+real	2m33.689s
+user	2m33.676s
+sys	0m0.000s
+
+------------------------------------
+
+=======================================================
+Executions for Quick Sort.
+
+------------------------------------
+Execution Test, 100000 numbers.
+
+
+real	0m0.014s
+user	0m0.014s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 200000 numbers.
+
+
+real	0m0.024s
+user	0m0.020s
+sys	0m0.004s
+
+------------------------------------
+Execution Test, 300000 numbers.
+
+
+real	0m0.037s
+user	0m0.037s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 400000 numbers.
+
+
+real	0m0.049s
+user	0m0.049s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 500000 numbers.
+
+
+real	0m0.058s
+user	0m0.058s
+sys	0m0.000s
+
+------------------------------------
+
+=======================================================
+Executions for Counting Sort.
+
+------------------------------------
+Execution Test, 100000 numbers.
+
+
+real	0m0.003s
+user	0m0.003s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 200000 numbers.
+
+
+real	0m0.006s
+user	0m0.006s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 300000 numbers.
+
+
+real	0m0.009s
+user	0m0.009s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 400000 numbers.
+
+
+real	0m0.012s
+user	0m0.012s
+sys	0m0.000s
+
+------------------------------------
+Execution Test, 500000 numbers.
+
+
+real	0m0.012s
+user	0m0.012s
+sys	0m0.000s
+
+------------------------------------
+
